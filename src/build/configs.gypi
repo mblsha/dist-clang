@@ -3,17 +3,17 @@
     'configurations': {
       'Debug': {
         'cflags': [
-          '-fno-exceptions',
+          # '-fno-exceptions',
           '-g',
           '-O0',
         ],
         'ldflags': [
-          '-fno-exceptions',
+          # '-fno-exceptions',
         ],
       },
       'Release': {
         'cflags': [
-          '-fno-exceptions',
+          # '-fno-exceptions',
           '-fomit-frame-pointer',
           '-O3',
         ],
@@ -29,10 +29,10 @@
       'Test': {
         'inherit_from': ['Debug'],
         'cflags!': [
-          '-fno-exceptions',
+          # '-fno-exceptions',
         ],
         'ldflags!': [
-          '-fno-exceptions',
+          # '-fno-exceptions',
         ],
       },
     },

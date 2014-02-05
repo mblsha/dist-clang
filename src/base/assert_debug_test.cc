@@ -8,7 +8,7 @@ namespace base {
 
 TEST(AssertDebugTest, FailureStackTrace) {
   // FIXME: a gtest implementation-dependent test.
-  const char* expected =
+#if defined(OS_LINUX)
       "Assertion failed: false\n"
       "  dist_clang::base::AssertDebugTest_FailureStackTrace_Test::TestBody\\("
       "\\)\n"
@@ -32,6 +32,10 @@ TEST(AssertDebugTest, FailureStackTrace) {
       "  RUN_ALL_TESTS\\(\\)\n"
       "  main\n"
       "  __libc_start_main";
+#else
+  const char* expected =
+      "Assertion failed: false";
+#endif
   ASSERT_THROW_STD(CHECK(false), expected);
   ASSERT_THROW_STD(DCHECK(false), expected);
   ASSERT_THROW_STD(DCHECK_O_EVAL(false), expected);
