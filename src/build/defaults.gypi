@@ -19,6 +19,7 @@
       '-Wall',
       '-Wsign-compare',
       '-Werror',
+      '-fcolor-diagnostics',
     ],
     'dependencies': [
       '<(DEPTH)/third_party/libcxx/libcxx.gyp:c++',
