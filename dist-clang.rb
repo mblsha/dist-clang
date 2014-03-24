@@ -11,6 +11,7 @@ class DistClang < Formula
     system "ninja", "-C", "src/out/Release"
 
     prefix.install "src/out/Release/clang", "src/out/Release/clangd"
+    File.symlink prefix+'clang', prefix+'clang++'
     prefix.install Dir["src/out/Release/*.dylib"]
   end
 
