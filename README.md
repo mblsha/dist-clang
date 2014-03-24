@@ -24,7 +24,7 @@ local {
 
 versions {
   version: "clang version 3.4 (trunk 193323)"
-  path: "/Users/mblsha/src/llvm-build/Release+Asserts/bin/clang++"
+  path: "/Users/mblsha/src/llvm-build/Release+Asserts/bin/clang"
   plugins {
     name: "find-bad-constructs"
     path: "/Users/mblsha/src/llvm-build/Release+Asserts/lib/libFindBadConstructs.dylib"
@@ -42,7 +42,7 @@ verbosity {
 #### Configuration
 
 ```
-export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang++
+export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang
 export CLANGD_SOCKET_PATH /tmp/clangd.socket
 /usr/local/opt/dist-clang/clangd --config ~/bin/dot-files/dist-clang/compile-node.config
 ```
@@ -63,7 +63,7 @@ remotes {
 
 versions {
   version: "clang version 3.4 (trunk 193323)"
-  path: "/Users/mblsha/src/llvm-build/Release+Asserts/bin/clang++"
+  path: "/Users/mblsha/src/llvm-build/Release+Asserts/bin/clang"
   plugins {
     name: "find-bad-constructs"
     path: "/Users/mblsha/src/llvm-build/Release+Asserts/lib/libFindBadConstructs.dylib"
@@ -81,13 +81,13 @@ verbosity {
 #### Configuration & Final Usage
 
 ```
-export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang++
+export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang
 export CLANGD_SOCKET_PATH /tmp/clangd.socket
 
 /usr/local/opt/dist-clang/clangd --config ~/bin/dot-files/dist-clang/commander.config
 
 export CC /usr/local/opt/dist-clang/clang
-export CXX /usr/local/opt/dist-clang/clang
+export CXX /usr/local/opt/dist-clang/clang++
 
 ./configure
 make
