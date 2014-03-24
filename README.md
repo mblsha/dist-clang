@@ -8,6 +8,8 @@ Fork of https://code.google.com/p/dist-clang/
 
 # Configuration
 
+Note: comments in config files are *NOT* supported.
+
 ### compile-node
 
 #### compile-node.config:
@@ -54,11 +56,25 @@ export CLANGD_SOCKET_PATH /tmp/clangd.socket
 ```
 socket_path: "/tmp/clangd.socket"
 
+# caching is optional. cache_size is in bytes
+cache_path: "/Users/mblsha/dist-clang/cache"
+cache_size: 107374182400
+
 remotes {
   host: "la-mac.local"
   port: 6001
   threads: 8
   disabled: false
+}
+
+# several versions at once are supported.
+versions {
+  version: "clang version 3.5 (trunk 19999)"
+  path: "/Users/mblsha/src/llvm-build-19999/Release+Asserts/bin/clang"
+  plugins {
+    name: "find-bad-constructs"
+    path: "/Users/mblsha/src/llvm-build-19999/Release+Asserts/lib/libFindBadConstructs.dylib"
+  }
 }
 
 versions {
