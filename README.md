@@ -44,8 +44,6 @@ verbosity {
 #### Configuration
 
 ```
-export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang
-export CLANGD_SOCKET_PATH /tmp/clangd.socket
 /usr/local/opt/dist-clang/clangd --config ~/bin/dot-files/dist-clang/compile-node.config
 ```
 
@@ -97,11 +95,16 @@ verbosity {
 #### Configuration & Final Usage
 
 ```
+# start it as a stand-alone instance, it has to keep running
+/usr/local/opt/dist-clang/clangd --config ~/bin/dot-files/dist-clang/commander.config
+
+# This needs to be executed for each compilation session:
+
+# current actual clang compiler to use
 export CLANGD_CXX /Users/mblsha/src/llvm-build/Release+Asserts/bin/clang
 export CLANGD_SOCKET_PATH /tmp/clangd.socket
 
-/usr/local/opt/dist-clang/clangd --config ~/bin/dot-files/dist-clang/commander.config
-
+# override CC / CXX so configure can use dist-clang instead of real one
 export CC /usr/local/opt/dist-clang/clang
 export CXX /usr/local/opt/dist-clang/clang++
 
