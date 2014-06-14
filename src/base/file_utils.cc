@@ -162,10 +162,7 @@ uint64_t CalculateDirectorySize(const std::string& path, std::string* error) {
 
   while (!paths.empty()) {
     const std::string& path = paths.front();
-    DIR* dir = opendir(path.c_str());
-    if (dir == nullptr) {
-      GetLastError(error);
-    } else {
+    if (DIR* dir = opendir(path.c_str())) {
       struct dirent* entry = nullptr;
 
       while ((entry = readdir(dir))) {
@@ -182,11 +179,15 @@ uint64_t CalculateDirectorySize(const std::string& path, std::string* error) {
             }
           } else {
             GetLastError(error);
+            break;
           }
         }
       }
+      closedir(dir);
+    } else {
+      GetLastError(error);
+      break;
     }
-    closedir(dir);
 
     paths.pop_front();
   }
